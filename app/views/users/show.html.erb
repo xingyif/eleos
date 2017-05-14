@@ -20,25 +20,5 @@
   <%= @user.cell_phone %>
 </p>
 
-<p>
-  <strong>Encrypted password:</strong>
-  <%= @user.encrypted_password %>
-</p>
-
-<p>
-  <strong>Reset password token:</strong>
-  <%= @user.reset_password_token %>
-</p>
-
-<p>
-  <strong>Reset password sent at:</strong>
-  <%= @user.reset_password_sent_at %>
-</p>
-
-<p>
-  <strong>User create at:</strong>
-  <%= @user.user_create_at %>
-</p>
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
