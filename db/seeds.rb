@@ -1,7 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'devise/encryptor'
+
+case Rails.env
+  when "development"
+    tour = User.create!(
+      username: "yifan",
+      name: "Yifan Xing",
+      first_name: "Yifan",
+      last_name: "Xing",
+      site_admin: true,
+    )
+
+    tour.encrypted_password = Devise::Encryptor.digest(tour.class, "password")
+    tour.save!
+
+  when "production"
+    tour = User.create!(
+      username: "yif",
+      name: "Yifan Xing",
+      first_name: "Yifan",
+      last_name: "Xing",
+      nickname: "yifan",
+      site_admin: true,
+    )
+end
